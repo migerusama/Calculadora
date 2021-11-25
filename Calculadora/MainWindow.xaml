@@ -5,90 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
         mc:Ignorable="d"
-        Title="Calculadora" Height="600" Width="400" MinWidth="400" MinHeight="600"
+        Title="Calculadora" Height="600" Width="600" MinWidth="580" MinHeight="600"
         Background="Black" WindowStyle="ThreeDBorderWindow">
-    
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Calculadora;component/css/MyStyle.xaml">
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="44*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		
+		<Grid Grid.Column="0">
 
-        <Grid Grid.Row="0" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="4*"/>
-            </Grid.RowDefinitions>
-            <TextBox x:Name="txtOperacion" 
+			<Grid.RowDefinitions>
+				<RowDefinition Height="9*"/>
+				<RowDefinition Height="44*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Grid Grid.Row="0" Grid.Column="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="4*"/>
+				</Grid.RowDefinitions>
+				<TextBox x:Name="txtOperacion" 
                      Grid.Row="0" 
                      Margin="3,3,3,0" 
                      FontSize="28" 
                      TextAlignment="Right" 
                      IsReadOnly="True" />
-                <TextBox x:Name="txtResultado" 
+				<TextBox x:Name="txtResultado" 
                      Grid.Row="1"
                      Grid.Column="1"
                      Margin="3,0,3,3" 
                      FontSize="38" 
                      TextAlignment="Right" 
-                     Text="0" 
-                     IsReadOnly="True"/>
-        </Grid>
-        
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="6*"/>
-            </Grid.RowDefinitions>
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="4*"/>
-            </Grid.ColumnDefinitions>
+                     Text="0"
+					 KeyDown="OnKeyDownHandler"
+                     IsReadOnly="True" />
+			</Grid>
 
-            <Button x:Name="btnPorcentaje" Margin="3" Grid.Row="0" Grid.Column="0" Content="%" FontSize="40" Click="btnPorcentaje_Click"/>
-            <Button x:Name="btnCE" Margin="3" Grid.Row="0" Grid.Column="1" Content="CE" FontSize="40" Click="btnCE_Click"/>
-            <Button x:Name="btnC" Margin="3" Grid.Row="0" Grid.Column="2" Content="C" FontSize="40" Click="btnC_Click"/>
-            <Button x:Name="btnBorrar" Margin="3" Grid.Row="0" Grid.Column="3" Content="&lt;-" FontSize="40" Click="btnBorrar_Click"/>
-            <Button x:Name="btnPartido" Margin="3" Grid.Row="1" Grid.Column="0" Content="1/x" FontSize="40" Click="btnPartido_Click"/>
-            <Button x:Name="btnElevar" Margin="3" Grid.Row="1" Grid.Column="1" Content="x²" FontSize="40" Click="btnElevar_Click"/>
-            <Button x:Name="btnRaiz" Margin="3" Grid.Row="1" Grid.Column="2" Content="√" FontSize="40" Click="btnRaiz_Click"/>
-            <Button x:Name="btnDividir" Margin="3" Grid.Row="1" Grid.Column="3" Content="/" Tag="/" FontSize="40" Click="clickOperador"/>
-            <Button x:Name="btnSiete" Margin="3" Grid.Row="2" Grid.Column="0" Content="7" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnOcho" Margin="3" Grid.Row="2" Grid.Column="1" Content="8" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnNueve" Margin="3" Grid.Row="2" Grid.Column="2" Content="9" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnMulti" Margin="3" Grid.Row="2" Grid.Column="3" Content="x" Tag="*" FontSize="40" Click="clickOperador"/>
-            <Button x:Name="btnCuatro" Margin="3" Grid.Row="3" Grid.Column="0" Content="4" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnCinco" Margin="3" Grid.Row="3" Grid.Column="1" Content="5" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnSeis" Margin="3" Grid.Row="3" Grid.Column="2" Content="6" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnResta" Margin="3" Grid.Row="3" Grid.Column="3" Content="-" Tag="-" FontSize="40" Click="clickOperador"/>
-            <Button x:Name="btnUno" Margin="3" Grid.Row="4" Grid.Column="0" Content="1" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnDos" Margin="3" Grid.Row="4" Grid.Column="1" Content="2" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnTres" Margin="3" Grid.Row="4" Grid.Column="2" Content="3" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnSuma" Margin="3" Grid.Row="4" Grid.Column="3" Content="+" Tag="+"  FontSize="40" Click="clickOperador"/>
-            <Button x:Name="btnMasMenos" Margin="3" Grid.Row="5" Grid.Column="0" Content="±" FontSize="40" Click="btnMasMenos_Click"/>
-            <Button x:Name="btnCero" Margin="3" Grid.Row="5" Grid.Column="1" Content="0" FontSize="40" Click="agregarNumero"/>
-            <Button x:Name="btnPunto" Margin="3" Grid.Row="5" Grid.Column="2" Content="." FontSize="40" Click="btnPunto_Click"/>
-            <Button x:Name="btnIgual" Margin="3" Grid.Row="5" Grid.Column="3" Content="=" FontSize="40" Click="btnIgual_Click"/>
+			<Grid Grid.Row="1" Grid.Column="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="6*"/>
+					<RowDefinition Height="6*"/>
+				</Grid.RowDefinitions>
 
-        </Grid>
-    </Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="4*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="btnPorcentaje" Margin="3" Grid.Row="0" Grid.Column="0" Content="%" FontSize="40" Click="BtnPorcentaje_Click"/>
+				<Button x:Name="btnCE" Margin="3" Grid.Row="0" Grid.Column="1" Content="CE" FontSize="40" Click="BtnCE_Click"/>
+				<Button x:Name="btnC" Margin="3" Grid.Row="0" Grid.Column="2" Content="C" FontSize="40" Click="BtnC_Click"/>
+				<Button x:Name="btnBorrar" Margin="3" Grid.Row="0" Grid.Column="3" Content="&lt;-" FontSize="40" Click="BtnBorrar_Click"/>
+				<Button x:Name="btnPartido" Margin="3" Grid.Row="1" Grid.Column="0" Content="1/x" FontSize="40" Click="BtnPartido_Click"/>
+				<Button x:Name="btnElevar" Margin="3" Grid.Row="1" Grid.Column="1" Content="x²" FontSize="40" Click="BtnElevar_Click"/>
+				<Button x:Name="btnRaiz" Margin="3" Grid.Row="1" Grid.Column="2" Content="√" FontSize="40" Click="BtnRaiz_Click"/>
+				<Button x:Name="btnDividir" Margin="3" Grid.Row="1" Grid.Column="3" Content="/" Tag="/" FontSize="40" Click="ClickOperador"/>
+				<Button x:Name="btnSiete" Margin="3" Grid.Row="2" Grid.Column="0" Content="7" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnOcho" Margin="3" Grid.Row="2" Grid.Column="1" Content="8" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnNueve" Margin="3" Grid.Row="2" Grid.Column="2" Content="9" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnMulti" Margin="3" Grid.Row="2" Grid.Column="3" Content="x" Tag="*" FontSize="40" Click="ClickOperador"/>
+				<Button x:Name="btnCuatro" Margin="3" Grid.Row="3" Grid.Column="0" Content="4" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnCinco" Margin="3" Grid.Row="3" Grid.Column="1" Content="5" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnSeis" Margin="3" Grid.Row="3" Grid.Column="2" Content="6" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnResta" Margin="3" Grid.Row="3" Grid.Column="3" Content="-" Tag="-" FontSize="40" Click="ClickOperador"/>
+				<Button x:Name="btnUno" Margin="3" Grid.Row="4" Grid.Column="0" Content="1" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnDos" Margin="3" Grid.Row="4" Grid.Column="1" Content="2" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnTres" Margin="3" Grid.Row="4" Grid.Column="2" Content="3" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnSuma" Margin="3" Grid.Row="4" Grid.Column="3" Content="+" Tag="+"  FontSize="40" Click="ClickOperador"/>
+				<Button x:Name="btnMasMenos" Margin="3" Grid.Row="5" Grid.Column="0" Content="±" FontSize="40" Click="BtnMasMenos_Click"/>
+				<Button x:Name="btnCero" Margin="3" Grid.Row="5" Grid.Column="1" Content="0" FontSize="40" Click="AgregarNumero"/>
+				<Button x:Name="btnPunto" Margin="3" Grid.Row="5" Grid.Column="2" Content="." FontSize="40" Click="BtnPunto_Click"/>
+				<Button x:Name="btnIgual" Margin="3" Grid.Row="5" Grid.Column="3" Content="=" FontSize="40" Click="BtnIgual_Click"/>
+			</Grid>
+		</Grid>
+
+		<TextBox Grid.Column="1" 
+				 x:Name="txtHistorial"
+				 AcceptsReturn="True"
+				 VerticalScrollBarVisibility="Auto"
+				 FontSize="38" 
+				 Background="LightSlateGray"
+				 TextWrapping="Wrap"
+				 IsReadOnly="True"/>
+	</Grid>
+	
 </Window>

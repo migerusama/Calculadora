@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\AlumnoDAM\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {}
+    "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {}
   },
   "projects": {
-    "D:\\Users\\AlumnoDAM\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {
+    "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\AlumnoDAM\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "projectUniqueName": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
         "projectName": "Calculadora",
-        "projectPath": "D:\\Users\\AlumnoDAM\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
-        "packagesPath": "C:\\Users\\AlumnoDAM\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\AlumnoDAM\\source\\repos\\Calculadora\\Calculadora\\obj\\",
+        "projectPath": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "packagesPath": "C:\\Users\\migui\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AlumnoDAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\migui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
