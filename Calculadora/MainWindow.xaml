@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
         mc:Ignorable="d"
-        Title="Calculadora" Height="600" Width="600" MinWidth="580" MinHeight="600"
+        Title="Calculadora" Height="600" Width="580" MinWidth="580" MinHeight="600"
         Background="Black" WindowStyle="ThreeDBorderWindow">
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="64*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -26,25 +26,30 @@
 
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="txtOperacion" 
-                     Grid.Row="0" 
-                     Margin="3,3,3,0" 
-                     FontSize="28" 
-                     TextAlignment="Right" 
-                     IsReadOnly="True" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
                 <TextBox 
-                     x:Name="txtResultado" 
-                     Grid.Row="1"
-                     Grid.Column="1"
-                     Margin="3,0,3,3" 
-                     FontSize="38" 
-                     TextAlignment="Right" 
-                     Text="0"
-					 KeyDown="OnKeyDownHandler"
-                     IsReadOnly="True" />
+                    Grid.Row="0"
+                    x:Name="txtOperacion"
+                    TextAlignment="Right" 
+                    FontSize="20"
+                    IsReadOnly="True"
+                    TextWrapping="Wrap" 
+                    Opacity="0.7"
+                    Margin="3"/>
+                <TextBox 
+                    Grid.Row="1"
+                    x:Name="txtResultado"
+                    FontSize="38" 
+                    TextAlignment="Right" 
+                    Text="0"
+					KeyDown="OnKeyDownHandler"
+                    IsReadOnly="True"
+                    Margin="3"/>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
@@ -90,15 +95,16 @@
                 <Button x:Name="btnIgual" Margin="3" Grid.Row="5" Grid.Column="3" Content="=" FontSize="40" Click="BtnIgual_Click"/>
             </Grid>
         </Grid>
-
-        <TextBox Grid.Column="1" 
-				 x:Name="txtHistorial"
-				 AcceptsReturn="True"
-				 VerticalScrollBarVisibility="Auto"
-				 FontSize="38" 
-				 Background="LightSlateGray"
-				 TextWrapping="Wrap"
-				 IsReadOnly="True"/>
+        <TextBox  
+            Grid.Column="1"
+			x:Name="txtHistorial"
+			VerticalScrollBarVisibility="Auto"
+			FontSize="24" 
+			Background="CadetBlue"
+			TextWrapping="WrapWithOverflow"
+			IsReadOnly="True"
+            FontStretch="Normal"
+            Padding="3"/>
     </Grid>
 
 </Window>

@@ -8,8 +8,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary 
                 Source="/Calculadora;component/css/StyleButton.xaml"/>
-                <ResourceDictionary 
-                Source="/Calculadora;component/css/StyleTextBox.xaml"/>
+                <!--<ResourceDictionary 
+                Source="/Calculadora;component/css/StyleTextBox.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

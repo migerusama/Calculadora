@@ -1,0 +1,5 @@
+C:\Users\migui\Desktop\interfaces\Calculadora.exe
+C:\Users\migui\Desktop\interfaces\Calculadora.dll
+C:\Users\migui\Desktop\interfaces\Calculadora.deps.json
+C:\Users\migui\Desktop\interfaces\Calculadora.runtimeconfig.json
+C:\Users\migui\Desktop\interfaces\Calculadora.pdb

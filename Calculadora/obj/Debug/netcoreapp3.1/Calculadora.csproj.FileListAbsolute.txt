@@ -20,7 +20,6 @@ D:\Users\AlumnoDAM\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\
 D:\Users\AlumnoDAM\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\css\MyStyle.baml
 D:\Users\AlumnoDAM\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora_MarkupCompile.lref
 C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.csproj.AssemblyReference.cache
-C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\css\MyStyle.baml
 C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora_MarkupCompile.cache
@@ -63,3 +62,6 @@ D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\obj\Debug\netcoreapp
 D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\obj\Debug\netcoreapp3.1\css\StyleButton.baml
 D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\obj\Debug\netcoreapp3.1\css\StyleTextBox.baml
 D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\obj\Debug\netcoreapp3.1\App.baml
+C:\Users\migui\Source\Repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\css\StyleButton.baml
+C:\Users\migui\Source\Repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\css\StyleTextBox.baml
+C:\Users\migui\Source\Repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\App.baml

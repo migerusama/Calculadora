@@ -35,6 +35,7 @@ namespace Calculadora
             else if (txtResultado.Text.Equals("-0")) txtResultado.Text = "-";
             txtResultado.Text += boton.Content;
             igual = false;
+            HabilitarDeshabilitarBtn(true);
         }
 
         private void ClickOperador(object sender, RoutedEventArgs e)
@@ -53,30 +54,48 @@ namespace Calculadora
 
         private void BtnIgual_Click(object sender, RoutedEventArgs e)
         {
-            if (igual)
+            try
             {
-                operacion = txtResultado.Text + op + num;
+                if (igual) operacion = txtResultado.Text + op + num;
+                else
+                {
+                    operacion += txtResultado.Text;
+                    num = txtResultado.Text;
+                }
+                operacion = operacion.Replace(",", ".");
+                txtOperacion.Text = operacion;
+                /*Operacion necesaria para operar con numeros grandes o pequeños, sino da error por int32*/
+                operacion = Regex.Replace(operacion, @"\d+(\.\d+)?", m =>
+                {
+                    var x = m.ToString();
+                    return x.Contains(".") ? x : string.Format("{0}.0", x);
+                });
+                resultado = (Convert.ToDouble(dt.Compute(operacion, ""))).ToString("0.00");
+                txtHistorial.Text = txtOperacion.Text + "=" + txtResultado.Text + "\n\n" + txtHistorial.Text;
+                if (resultado.Substring(resultado.Length - 2, 2) == "00") resultado = resultado.Substring(0, resultado.Length - 3);
+                txtResultado.Text = resultado;
+                operacion = "";
+                operador = false;
+                igual = true;
             }
-            else
+            catch (DivideByZeroException)
             {
-                operacion += txtResultado.Text;
-                num = txtResultado.Text;
+                txtResultado.Text = "No se puede dividr por 0";
+                txtOperacion.Text = "";
+                HabilitarDeshabilitarBtn(false);
+                operacion = "";
+                operador = false;
+                igual = true;
             }
-            operacion = operacion.Replace(",", ".");
-            txtOperacion.Text = operacion;
-            txtHistorial.Text = operacion + "=" + txtResultado.Text + "\n\n" + txtHistorial.Text;
-            /*Operacion necesaria para operar con numeros grandes o pequeños, sino da error por int32*/
-            operacion = Regex.Replace(operacion, @"\d+(\.\d+)?", m =>
+            catch (OverflowException)
             {
-                var x = m.ToString();
-                return x.Contains(".") ? x : string.Format("{0}.0", x);
-            });
-            resultado = (Convert.ToDouble(dt.Compute(operacion, ""))).ToString("0.00");
-            if (resultado.Substring(resultado.Length - 2, 2) == "00") resultado = resultado.Substring(0, resultado.Length - 3);
-            txtResultado.Text = resultado;
-            operacion = "";
-            operador = false;
-            igual = true;
+                txtResultado.Text = "Numero muy grande";
+                txtOperacion.Text = "";
+                HabilitarDeshabilitarBtn(false);
+                operacion = "";
+                operador = false;
+                igual = true;
+            }
         }
 
         private void BtnRaiz_Click(object sender, RoutedEventArgs e)
@@ -92,9 +111,21 @@ namespace Calculadora
 
         private void BtnElevar_Click(object sender, RoutedEventArgs e)
         {
-            operacion += txtResultado.Text;
-            txtResultado.Text = Math.Pow(Convert.ToDouble(operacion), 2).ToString();
-            igual = false;
+            try
+            {
+                operacion += txtResultado.Text;
+                txtResultado.Text = Math.Pow(Convert.ToDouble(operacion), 2).ToString();
+                igual = false;
+            }
+            catch (OverflowException)
+            {
+                txtResultado.Text = "Numero muy grande";
+                txtOperacion.Text = "";
+                HabilitarDeshabilitarBtn(false);
+                operacion = "";
+                operador = false;
+            }
+            
         }
 
         private void BtnC_Click(object sender, RoutedEventArgs e)
@@ -103,12 +134,14 @@ namespace Calculadora
             txtResultado.Text = "0";
             txtOperacion.Text = "";
             igual = false;
+            HabilitarDeshabilitarBtn(true);
         }
 
         private void BtnCE_Click(object sender, RoutedEventArgs e)
         {
             txtResultado.Text = "0";
             igual = false;
+            HabilitarDeshabilitarBtn(true);
         }
 
         private void BtnBorrar_Click(object sender, RoutedEventArgs e)
@@ -150,6 +183,40 @@ namespace Calculadora
             if (e.Key == Key.Return)
             {
                 BtnIgual_Click(sender, e);
+            }
+        }
+
+        private void HabilitarDeshabilitarBtn(Boolean op)
+        {
+            if (op)
+            {
+                btnDividir.IsEnabled = true;
+                btnMulti.IsEnabled = true;
+                btnSuma.IsEnabled = true;
+                btnResta.IsEnabled = true;
+                btnRaiz.IsEnabled = true;
+                btnElevar.IsEnabled = true;
+                btnPorcentaje.IsEnabled = true;
+                btnPartido.IsEnabled = true;
+                btnMasMenos.IsEnabled = true;
+                btnPunto.IsEnabled = true;
+                btnBorrar.IsEnabled = true;
+                btnIgual.IsEnabled = true;
+            }
+            else
+            {
+                btnDividir.IsEnabled = false;
+                btnMulti.IsEnabled = false;
+                btnSuma.IsEnabled = false;
+                btnResta.IsEnabled = false;
+                btnRaiz.IsEnabled = false;
+                btnElevar.IsEnabled = false;
+                btnPorcentaje.IsEnabled = false;
+                btnPartido.IsEnabled = false;
+                btnMasMenos.IsEnabled = false;
+                btnPunto.IsEnabled = false;
+                btnBorrar.IsEnabled = false;
+                btnIgual.IsEnabled = false;
             }
         }
     }
