@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\migui\source\repos\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\
+D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\obj\Debug\netcoreapp3.1\
 Calculadora
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\migui\source\repos\Calculadora\Calculadora\App.xaml
-21089984124
+D:\Users\AlumnoDAM\Source\Repos\Calculadora-Git\Calculadora\App.xaml
+3614333854
 
 4-890759176
 192-1533232326
-css\MyStyle.xaml;MainWindow.xaml;
+css\StyleButton.xaml;css\StyleTextBox.xaml;MainWindow.xaml;
 
 True
 

@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="css\MyStyle.xaml">
+    <Page Update="css\StyleTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="css\StyleButton.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

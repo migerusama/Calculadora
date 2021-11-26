@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {}
+    "D:\\Users\\AlumnoDAM\\Source\\Repos\\Calculadora-Git\\Calculadora\\Calculadora.csproj": {}
   },
   "projects": {
-    "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj": {
+    "D:\\Users\\AlumnoDAM\\Source\\Repos\\Calculadora-Git\\Calculadora\\Calculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "projectUniqueName": "D:\\Users\\AlumnoDAM\\Source\\Repos\\Calculadora-Git\\Calculadora\\Calculadora.csproj",
         "projectName": "Calculadora",
-        "projectPath": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\Calculadora.csproj",
-        "packagesPath": "C:\\Users\\migui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migui\\source\\repos\\Calculadora\\Calculadora\\obj\\",
+        "projectPath": "D:\\Users\\AlumnoDAM\\Source\\Repos\\Calculadora-Git\\Calculadora\\Calculadora.csproj",
+        "packagesPath": "C:\\Users\\AlumnoDAM\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\AlumnoDAM\\Source\\Repos\\Calculadora-Git\\Calculadora\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\migui\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlumnoDAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
