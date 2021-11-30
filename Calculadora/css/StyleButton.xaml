@@ -70,7 +70,7 @@
             </GradientStopCollection>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
-    
+
     <Style x:Key="ButtonFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -85,8 +85,10 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Margin" Value="3"/>
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="OverridesDefaultStyle"
@@ -101,9 +103,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border TextBlock.Foreground="{TemplateBinding Foreground}"
-                x:Name="Border"
-                CornerRadius="2"
-                BorderThickness="1">
+                            x:Name="Border"
+                            CornerRadius="2"
+                            BorderThickness="1">
                         <Border.BorderBrush>
                             <LinearGradientBrush StartPoint="0,0"
                                  EndPoint="0,1">
@@ -116,8 +118,8 @@
                                     </GradientStopCollection>
                                 </LinearGradientBrush.GradientStops>
                             </LinearGradientBrush>
-
                         </Border.BorderBrush>
+                        
                         <Border.Background>
                             <LinearGradientBrush EndPoint="0.5,1"
                                  StartPoint="0.5,0">

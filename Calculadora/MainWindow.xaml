@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Calculadora"
         mc:Ignorable="d"
         Title="Calculadora" Height="600" Width="580" MinWidth="580" MinHeight="600"
@@ -26,8 +27,8 @@
 
             <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -44,12 +45,14 @@
                 <TextBox 
                     Grid.Row="1"
                     x:Name="txtResultado"
-                    FontSize="38" 
+                    FontSize="36" 
                     TextAlignment="Right" 
                     Text="0"
 					KeyDown="OnKeyDownHandler"
                     IsReadOnly="True"
-                    Margin="3"/>
+                    Margin="3"
+                    VerticalContentAlignment="Top"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
@@ -69,30 +72,30 @@
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="btnPorcentaje" Margin="3" Grid.Row="0" Grid.Column="0" Content="%" FontSize="40" Click="BtnPorcentaje_Click"/>
-                <Button x:Name="btnCE" Margin="3" Grid.Row="0" Grid.Column="1" Content="CE" FontSize="40" Click="BtnCE_Click"/>
-                <Button x:Name="btnC" Margin="3" Grid.Row="0" Grid.Column="2" Content="C" FontSize="40" Click="BtnC_Click"/>
-                <Button x:Name="btnBorrar" Margin="3" Grid.Row="0" Grid.Column="3" Content="&lt;-" FontSize="40" Click="BtnBorrar_Click"/>
-                <Button x:Name="btnPartido" Margin="3" Grid.Row="1" Grid.Column="0" Content="1/x" FontSize="40" Click="BtnPartido_Click"/>
-                <Button x:Name="btnElevar" Margin="3" Grid.Row="1" Grid.Column="1" Content="x²" FontSize="40" Click="BtnElevar_Click"/>
-                <Button x:Name="btnRaiz" Margin="3" Grid.Row="1" Grid.Column="2" Content="√" FontSize="40" Click="BtnRaiz_Click"/>
-                <Button x:Name="btnDividir" Margin="3" Grid.Row="1" Grid.Column="3" Content="/" Tag="/" FontSize="40" Click="ClickOperador"/>
-                <Button x:Name="btnSiete" Margin="3" Grid.Row="2" Grid.Column="0" Content="7" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnOcho" Margin="3" Grid.Row="2" Grid.Column="1" Content="8" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnNueve" Margin="3" Grid.Row="2" Grid.Column="2" Content="9" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnMulti" Margin="3" Grid.Row="2" Grid.Column="3" Content="x" Tag="*" FontSize="40" Click="ClickOperador"/>
-                <Button x:Name="btnCuatro" Margin="3" Grid.Row="3" Grid.Column="0" Content="4" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnCinco" Margin="3" Grid.Row="3" Grid.Column="1" Content="5" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnSeis" Margin="3" Grid.Row="3" Grid.Column="2" Content="6" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnResta" Margin="3" Grid.Row="3" Grid.Column="3" Content="-" Tag="-" FontSize="40" Click="ClickOperador"/>
-                <Button x:Name="btnUno" Margin="3" Grid.Row="4" Grid.Column="0" Content="1" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnDos" Margin="3" Grid.Row="4" Grid.Column="1" Content="2" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnTres" Margin="3" Grid.Row="4" Grid.Column="2" Content="3" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnSuma" Margin="3" Grid.Row="4" Grid.Column="3" Content="+" Tag="+"  FontSize="40" Click="ClickOperador"/>
-                <Button x:Name="btnMasMenos" Margin="3" Grid.Row="5" Grid.Column="0" Content="±" FontSize="40" Click="BtnMasMenos_Click"/>
-                <Button x:Name="btnCero" Margin="3" Grid.Row="5" Grid.Column="1" Content="0" FontSize="40" Click="AgregarNumero"/>
-                <Button x:Name="btnPunto" Margin="3" Grid.Row="5" Grid.Column="2" Content="." FontSize="40" Click="BtnPunto_Click"/>
-                <Button x:Name="btnIgual" Margin="3" Grid.Row="5" Grid.Column="3" Content="=" FontSize="40" Click="BtnIgual_Click"/>
+                <Button x:Name="btnPorcentaje" Grid.Row="0" Grid.Column="0" Content="%"  Click="BtnPorcentaje_Click"/>
+                <Button x:Name="btnCE" Grid.Row="0" Grid.Column="1" Content="CE" Click="BtnCE_Click"/>
+                <Button x:Name="btnC" Grid.Row="0" Grid.Column="2" Content="C" Click="BtnC_Click"/>
+                <Button x:Name="btnBorrar" Grid.Row="0" Grid.Column="3" Content="&lt;-" Click="BtnBorrar_Click"/>
+                <Button x:Name="btnPartido" Grid.Row="1" Grid.Column="0" Content="1/x" Click="BtnPartido_Click"/>
+                <Button x:Name="btnElevar" Grid.Row="1" Grid.Column="1" Content="x²" Click="BtnElevar_Click"/>
+                <Button x:Name="btnRaiz" Grid.Row="1" Grid.Column="2" Content="√" Click="BtnRaiz_Click"/>
+                <Button x:Name="btnDividir" Grid.Row="1" Grid.Column="3" Content="/" Tag="/" Click="ClickOperador"/>
+                <Button x:Name="btnSiete" Grid.Row="2" Grid.Column="0" Content="7" Click="AgregarNumero"/>
+                <Button x:Name="btnOcho" Grid.Row="2" Grid.Column="1" Content="8" Click="AgregarNumero"/>
+                <Button x:Name="btnNueve" Grid.Row="2" Grid.Column="2" Content="9" Click="AgregarNumero"/>
+                <Button x:Name="btnMulti" Grid.Row="2" Grid.Column="3" Content="x" Tag="*" Click="ClickOperador"/>
+                <Button x:Name="btnCuatro" Grid.Row="3" Grid.Column="0" Content="4" Click="AgregarNumero"/>
+                <Button x:Name="btnCinco" Grid.Row="3" Grid.Column="1" Content="5" Click="AgregarNumero"/>
+                <Button x:Name="btnSeis" Grid.Row="3" Grid.Column="2" Content="6" Click="AgregarNumero"/>
+                <Button x:Name="btnResta" Grid.Row="3" Grid.Column="3" Content="-" Tag="-" Click="ClickOperador"/>
+                <Button x:Name="btnUno" Grid.Row="4" Grid.Column="0" Content="1" Click="AgregarNumero"/>
+                <Button x:Name="btnDos" Grid.Row="4" Grid.Column="1" Content="2" Click="AgregarNumero"/>
+                <Button x:Name="btnTres" Grid.Row="4" Grid.Column="2" Content="3" Click="AgregarNumero"/>
+                <Button x:Name="btnSuma" Grid.Row="4" Grid.Column="3" Content="+" Tag="+" Click="ClickOperador"/>
+                <Button x:Name="btnMasMenos" Grid.Row="5" Grid.Column="0" Content="±" Click="BtnMasMenos_Click"/>
+                <Button x:Name="btnCero" Grid.Row="5" Grid.Column="1" Content="0" Click="AgregarNumero"/>
+                <Button x:Name="btnPunto" Grid.Row="5" Grid.Column="2" Content="." Click="BtnPunto_Click"/>
+                <Button x:Name="btnIgual" Grid.Row="5" Grid.Column="3" Content="=" Click="BtnIgual_Click"/>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
@@ -109,10 +112,12 @@
 			    TextWrapping="WrapWithOverflow"
 			    IsReadOnly="True"
                 FontStretch="Normal"
-                Padding="3"/>
-            <Button Grid.Row="1" Content="LIMPIAR HISTORIAL" FontSize="26" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="BorrarHistorial"/>
+                Padding="3"
+                Margin="2"
+                HorizontalContentAlignment="Stretch"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <Button Grid.Row="1" Content="LIMPIAR HISTORIAL" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="BorrarHistorial"/>
         </Grid>
-        
     </Grid>
-
 </Window>

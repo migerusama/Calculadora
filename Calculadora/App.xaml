@@ -4,14 +4,7 @@
              xmlns:local="clr-namespace:Calculadora"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary 
-                Source="/Calculadora;component/css/StyleButton.xaml"/>
-                <!--<ResourceDictionary 
-                Source="/Calculadora;component/css/StyleTextBox.xaml"/>-->
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <ResourceDictionary Source="/Calculadora;component/css/StyleButton.xaml"/>
     </Application.Resources>
 
 </Application>
